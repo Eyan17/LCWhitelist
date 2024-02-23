@@ -13,7 +13,7 @@ namespace LethalCompanyTemplate
 
     internal class Whitelist : BaseUnityPlugin
     {
-        private const string modGUID = "EyanAndSmajloSlovakian.whitelist";
+        private const string modGUID = "Eyan17.whitelist";
         private const string modName = "Whitelist";
         private const string modVersion = "1.0.1";
 
