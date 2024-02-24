@@ -24,6 +24,9 @@
       <Reference Include="0Harmony">
         <HintPath>..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\core\0Harmony.dll</HintPath>
       </Reference>
+      <Reference Include="Amrv.ConfigurableCompany">
+        <HintPath>..\..\AppData\Roaming\r2modmanPlus-local\LethalCompany\profiles\Default\BepInEx\plugins\AMRV-ConfigurableCompany\Amrv.ConfigurableCompany.dll</HintPath>
+      </Reference>
       <Reference Include="Assembly-CSharp">
         <HintPath>..\..\Documents\My Games\Lethal Company\Lethal Company_Data\Managed\Assembly-CSharp.dll</HintPath>
       </Reference>
