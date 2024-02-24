@@ -1,3 +1,3 @@
-This is a whitelist mod for the game Lethal Company. It works by checking if all connected players' names are included in the config file. If someone's is not, they will be kicked out.
+This is a whitelist mod for the game Lethal Company. It checks the config file when someone joins and checks if their username is inside and disconnects them otherwise.
 
-The mod is server-side.
+This mod is server-side.
