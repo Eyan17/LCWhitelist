@@ -42,7 +42,9 @@ namespace LethalCompanyTemplate
 
             configWhitelistToggle = Config.Bind("General", "isWhitelistOn", true, "Toggles whether the whitelist is on.");
             configWhitelist = Config.Bind("Whitelist", "allowedUsenames", "Player", "A list of usernames seperated by a semicolon. All spaces before and after the name are trimed.");
+            
             ReadConfigFile();
+
             Events.ConfigurationChanged.Listeners += OnConfigUIChanged;
 
             Harmony.CreateAndPatchAll(typeof(PlayerControllerPatch));
@@ -54,7 +56,10 @@ namespace LethalCompanyTemplate
         {
             Config.Reload();
 
-            loadedWhitelist = splitString(configWhitelist.Value);
+            mls.LogInfo("Reloaded data from config file.");
+
+            loadedWhitelist = SplitString(configWhitelist.Value);
+
             mls.LogMessage("Whitelisted players:");
             for (int i = 0; i < loadedWhitelist.Count; i++)
             {
@@ -70,19 +75,17 @@ namespace LethalCompanyTemplate
         private void OnConfigUIChanged(object sender, EventArgs e)
         {
             if(disableUpdateFromGUI) return;
+
             configWhitelistToggle.Value = GUIWhitelistToggle.Get<bool>();
             configWhitelist.Value = GUIWhitelist.Get<string>();
-            var a = splitString(configWhitelist.Value);
+
+            var a = SplitString(configWhitelist.Value);
             loadedWhitelist = a;
+
             mls.LogInfo("Saved settings to config from UI.");
         }
 
-        public static void OnClientConnect(ulong e)
-        {
-            mls.LogInfo("client connected");
-        }
-
-        static List<string> splitString(string input)
+        static List<string> SplitString(string input)
         {
             List<string> result = new List<string>();
             string subresult = "";
@@ -134,9 +137,9 @@ namespace LethalCompanyTemplate
     {
         [HarmonyPatch("ConnectionApproval")]
         [HarmonyPostfix]
-        static void ConnectionApprovalPatch(NetworkManager.ConnectionApprovalResponse __0){
+        static void ConnectionApprovalPatch()
+        {
             Whitelist.instance.ReadConfigFile();
-            Whitelist.mls.LogInfo(__0.Approved+"\nLALLALALALALALALALLALALALLALALALALALALLA\nslalaLALLALALALALALALLALALALALLALLALALALALALALALLALALALLALALALALALALLA\nslalaLALLALALALALALALLALALALALLALLALALALALALALALLALALALLALALALALALALLA\nslalaLALLALALALALALALLALALALALLALLALALALALALALALLALALALLALALALALALALLA\nslalaLALLALALALALALALLALALALALLALLALALALALALALALLALALALLALALALALALALLA\nslalaLALLALALALALALALLALALALALbadabingbadabung");
         }
     }
 }
