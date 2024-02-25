@@ -90,7 +90,7 @@ namespace LethalCompanyTemplate
         [HarmonyPostfix]
         static void UpdatePatch(ref string ___playerUsername, ref ulong ___actualClientId, ref bool ___isPlayerControlled)
         {
-            if (___actualClientId == 0 || !___isPlayerControlled || !Whitelist.instance.configWhitelistToggle.Value) return;
+            if (___actualClientId == 0 || !___isPlayerControlled || !Whitelist.instance.configWhitelistToggle.Value || NetworkManager.Singleton.IsClient) return;
 
             if (!Whitelist.loadedWhitelist.Contains<string>(___playerUsername))
             {
