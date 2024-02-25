@@ -15,7 +15,7 @@ namespace LethalCompanyTemplate
     {
         private const string modGUID = "Eyan17.whitelist";
         private const string modName = "Whitelist";
-        private const string modVersion = "1.1.0";
+        private const string modVersion = "1.1.2";
 
         internal static Whitelist instance = null;
         internal static ManualLogSource mls;
