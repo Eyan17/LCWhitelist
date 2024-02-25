@@ -31,8 +31,8 @@ namespace LethalCompanyTemplate
             mls = BepInEx.Logging.Logger.CreateLogSource(modName);
             mls.LogInfo("The whitelist has been initiated.");
 
-            configWhitelistToggle = Config.Bind("General", "isWhitelistOn", true, "Toggles whether the whitelist is on.");
-            configWhitelist = Config.Bind("Whitelist", "allowedUsenames", "Player", "A list of usernames seperated by a semicolon. All spaces before and after the name are trimed.");
+            configWhitelistToggle = Config.Bind("General", "isWhitelistOn", true, "Toggles whether the whitelist is on. (Value can be changed mid-game)");
+            configWhitelist = Config.Bind("Whitelist", "allowedUsenames", "Player", "A list of usernames seperated by a semicolon. All spaces before and after the name are trimmed. (Value can be changed mid-game)");
             ReadConfigFile();
 
             Harmony.CreateAndPatchAll(typeof(PlayerControllerPatch));
